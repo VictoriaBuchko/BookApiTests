@@ -17,14 +17,12 @@ namespace BooksApi.Controllers
 
         private static int _nextId = 4;
 
-        // GET /api/books
         [HttpGet]
         public ActionResult<IEnumerable<Book>> GetAll()
         {
             return Ok(_books);
         }
 
-        // GET /api/books/{id}
         [HttpGet("{id}")]
         public ActionResult<Book> GetById(int id)
         {
@@ -35,7 +33,6 @@ namespace BooksApi.Controllers
             return Ok(book);
         }
 
-        // POST /api/books
         [HttpPost]
         public ActionResult<Book> Create([FromBody] Book book)
         {
@@ -48,7 +45,6 @@ namespace BooksApi.Controllers
             return CreatedAtAction(nameof(GetById), new { id = book.Id }, book);
         }
 
-        // PUT /api/books/{id}
         [HttpPut("{id}")]
         public ActionResult Update(int id, [FromBody] Book updatedBook)
         {
@@ -66,7 +62,6 @@ namespace BooksApi.Controllers
             return NoContent();
         }
 
-        // DELETE /api/books/{id}
         [HttpDelete("{id}")]
         public ActionResult Delete(int id)
         {
